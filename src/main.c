@@ -45,12 +45,12 @@ typedef struct {
 const uart_id_t UART_ID[CFG_TUD_CDC] = {
 	{
 		.inst = uart0,
-		.tx_pin = 0,
-		.rx_pin = 1,
+		.tx_pin = 12,
+		.rx_pin = 13,
 	}, {
 		.inst = uart1,
-		.tx_pin = 4,
-		.rx_pin = 5,
+		.tx_pin = 8,
+		.rx_pin = 9,
 	}
 };
 
@@ -181,7 +181,7 @@ void core1_entry(void)
 		int con = 0;
 
 		tud_task();
-	
+
 		for (itf = 0; itf < CFG_TUD_CDC; itf++) {
 			if (tud_cdc_n_connected(itf)) {
 				con = 1;
